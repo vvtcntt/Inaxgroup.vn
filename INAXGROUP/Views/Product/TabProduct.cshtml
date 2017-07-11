@@ -1,0 +1,24 @@
+﻿@{
+     Layout = "~/Views/Shared/_LayoutDefault.cshtml";
+}
+
+ 
+<div class="Root">
+    <a href="/" title="Trang chủ" rel="nofollow"><span class="iCon"></span>Trang chủ</a> / Tabs sản phẩm
+</div>
+<div id="Content">
+
+    <div class="List_product">
+        <div id="Box_Name">
+            <div id="Leff_BoxName"><h1> @Html.Raw(ViewBag.name)</h1></div>
+
+        </div>
+        <div class="Clear"></div>
+        <div class="ContentProduct">
+            @Html.Raw(ViewBag.chuoisanpham)
+            <div class="Clear"></div>
+    </div>
+
+
+</div>
+<div class="Clear"></div>

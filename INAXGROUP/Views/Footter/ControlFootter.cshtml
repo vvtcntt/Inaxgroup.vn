@@ -1,0 +1,210 @@
+﻿@model INAXGROUP.Models.tblConfig
+<div id="Services">
+    <div class="Tear_Chinhhang">
+        <span class="Name">Chỉ bán hàng Inax chính hãng</span>
+        <span class="Des">
+            Bởi vì chúng tôi là chính hãng Inax, Sản
+            phẩm nguồn gốc, xuất xứ sản phẩm rõ ràng
+        </span>
+    </div>
+    <div class="Tear_Dichvu">
+        <span class="Name">Dịch vụ chăm sóc khách hàng</span>
+        <span class="Des">
+            Chúng tôi luôn cam kết dịch vụ chăm sóc
+            khách hàng trước và sau bán hàng tốt nhất.
+        </span>
+    </div>
+    <div class="Tear_Muahang">
+        <span class="Name">Mua hàng đơn giản thuận tiện</span>
+        <span class="Des">
+            Khách hàng luôn hài lòng bởi thủ tục mua
+            hàng đơn giản, thuận tiện của chúng tôi.
+        </span>
+    </div>
+</div>
+<div class="Clear"></div>
+<div class="Line_ft"></div>
+<div class="Clear"></div>
+<div id="List_Info">
+    <div class="Tear_Info">
+        <span class="Name">Thông tin về INAXGROUP</span>
+        <div class="line_Bo"></div>
+        <a href="/Lien-he" title="Liên hệ" rel="nofollow">› Thông tin liên hệ</a>
+        <a href="/2/Tin-tuc" title="tin tức">› Tin tức mới</a>
+        <a href="/2/Kinh-nghiem-su-dung" title="Kih nghiem" rel="nofollow">› Kinh nghiệm sử dụng</a>
+        <a href="/Catalogues" title="Calotagues" rel="nofollow">› Tải về Catalogues</a>
+        <a href="/2/Cong-nghe-san-pham" title="Công nghệ sản phẩm" rel="nofollow">› Công nghệ sản phẩm mới</a>
+        <a href="/2/Dai-ly-thiet-bi-ve-sinh-inax" title="Đại lý thiết bị vệ sinh inax"  >› Hệ thống đại lý</a>
+    </div>
+    <div class="Tear_Info">
+        <span class="Name">Những điều bạn cần biết</span>
+        <div class="line_Bo"></div>
+        <a href="/3/chinh-sach-bao-hanh-inaxgroup-56.aspx" title="Quy định bảo hành" rel="nofollow">› Quy định Bảo hành</a>
+        <a href="/3/chinh-sach-van-chuyen-va-giao-hang-cua-inaxgroup-57.aspx" title="Quy định giao hàng" rel="nofollow">› Quy định giao hàng</a>
+        <a href="/3/chinh-sach-thanh-toan-inaxgroup-55.aspx" title="Quy định thanh toán" rel="nofollow">› Quy định thanh toán</a>
+        <a href="/3/chinh-sach-doi-tra-hang-cua-inaxgroup-58.aspx" title="Quy định đổi trả hàng" rel="nofollow">› Quy định đổi trả hàng</a>
+        <a href="/3/chinh-sach-bao-mat-thong-tin-cua-inaxgroup-59.aspx" title="Chính sách bảo mật" rel="nofollow">› Chính sách bảo mật</a>
+
+    </div>
+    <div class="Tear_Info-1">
+        <span class="Name">Chỉ dẫn mua hàng</span>
+        <div class="line_Bo"></div>
+        <span class="Location"><span class="icon"></span> Showroom Inax : @Model.Address</span>
+        <span class="Hotline"><span class="icon"></span> Hotline : 
+            @if (int.Parse(DateTime.Now.Hour.ToString()) > 0 && int.Parse(DateTime.Now.Hour.ToString()) < 7)
+            {
+
+                <span>@Model.HotlineOUT</span>
+
+            }
+            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 7 && int.Parse(DateTime.Now.Hour.ToString()) < 19)
+            {
+
+                <span>@Model.HotlineIN</span>
+            }
+
+
+            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 19 && int.Parse(DateTime.Now.Hour.ToString()) < 25)
+            {
+                <span>@Model.HotlineOUT</span>
+
+            }
+       
+        
+        </span>
+        <span class="Phone"><span class="icon"></span> Điện thoại bàn : <span>@Model.MobileIN</span></span>
+        <span class="Email"><span class="icon"></span> Email : <span>@Model.Email</span></span>
+    </div>
+    <div class="Tear_Info_2">
+        <span class="Name">Đăng ký chương trình khuyến mại</span>
+        <div class="line_Bo"></div>
+@using (Html.BeginForm("Command", "Footter", FormMethod.Post))
+{
+        <div class="Content_ft">
+            <span class="Des">
+                Nếu bạn chưa mua sản phẩm khi chương  trình
+                khuyến mại diễn ra thì hình thức  “ĐĂNG KÝ CHƯƠNG
+                TRÌNH KHUYẾN MẠI” sẽ giúp bạn giữ được giá tại
+                thời điểm khuyến mại !
+            </span>
+            <div class="Row">
+                <div class="col_1">Họ và tên :</div>
+                <div class="col_2"><input type="text"   name="txtName" id="txtName" /></div>
+            </div>
+            <div class="Row">
+                <div class="col_1">Điện thoại :</div>
+                <div class="col_2"><input type="text"   name="txtHotline" id="txtHotline" /></div>
+            </div>
+            <div class="Row">
+                <div class="col_1">Kiểu đăng ký :</div>
+                <div class="col_2">
+                    <select id="selectcate" name="selectcate">
+                        <option value="0">Đăng ký nhận mail</option>
+                        <option value="1">Đăng ký giữ giá</option>
+                    </select>
+                </div>
+            </div>
+            <div class="Row">
+                <button type="submit" id="btnSend" name="btnSend">Đăng ký</button>
+            </div>
+        </div>
+}
+    </div>
+</div>
+<div class="Clear"></div>
+<div id="BannerTimes"></div>
+<div class="Clear"></div>
+<div id="Authorship" style=" width:100%; height:21px; float:left; margin:2px 0px; text-align:center">
+    <nav>@Html.Raw(Model.DMCA)<a href="https://plus.google.com/@Model.Authorship?rel=author"><img src="~/Content/Display/iCon/GoogleAuthorShip.png" alt="Đăng ký google authorShip" /></a>
+    </nav>
+    <div class="Clear"></div>
+</div>
+<div class="Clear"></div>
+<div id="Maps_Homes">
+    @Html.Raw(ViewBag.maps)
+    <div class="Clear"></div>
+    <div style="width:100%; height:auto; float:left; margin:7px 0px; font-size:12px; color:#3e3e3e">
+        @Html.Raw(Model.Content)
+    </div>
+    <div style="width: 100%; font-size: 2px; color: #fff">
+        <a href="http://thayloilocnuoc.com" title="Thay lõi lọc nước Kangaroo tại nhà" style="font-size:2px; color:#fff; margin:0px; display:inline-block">Thay lõi lọc nước kangaroo tại nhà</a> hay mua <a href="http://binhnonglanh.top" title="Bình nóng lạnh giá rẻ nhất" style="font-size:2px; color:#fff; margin:0px; display:inline-block">Bình nóng lạnh giá rẻ</a>
+    </div>
+    <div class="boxlink">
+        <a href="http://viglacerahanoi.com" title="Thiết bị vệ sinh viglacera">thiết bị vệ sinh Viglacera</a> hay sản phẩm <a href="http://loiloc.com" title="Lõi lọc nước">Lõi lọc nước</a> hay <a href="http://viglacerahanoi.com/gach-op-lat-viglacera" title="Gạch ốp lát">Gạch ốp lát</a> cùng với 	<a href="http://viglacerahanoi.com" title="Bồn cầu viglacera">Bồn cầu Viglacera</a> hay 	<a href="http://viglacerahanoi.com/sen-voi-viglacera" title="Sen vòi Viglacera">Sen vòi Viglacera</a>
+    </div>
+    <style>
+        .boxlink {
+            opacity: 0.01;
+            width: 100%;
+            height: auto;
+            font-size: 10px;
+        }
+    </style>
+</div>
+<div class="Clear"></div>
+
+<div class="Line_ft"></div>
+<div id="Footter">
+    <div id="Content_Footter">
+        <div id="Left" style="background:url(@Model.Logo) no-repeat center center scroll #FFF"></div>
+        <div id="Center">
+            <span class="Coppyright">
+                Bản quyền © 2015 - @Model.Name
+            </span>
+            <span class="Name">
+                Công ty TNHH SEABIG VIỆT NAM
+            </span>
+            <span class="ft1">MST: 0105956762 | Điện thoại: @Model.MobileIN | Email: @Model.Email</span>
+            <span class="ft1">Địa chỉ : @Model.Address</span>
+        </div>
+        <div id="Right">
+            <a href="" title=""><img src="~/Content/Display/iCon/dkbct.png" alt="" /></a>
+        </div>
+    </div>
+    <div id="LinkURL">
+        @Html.Raw(ViewBag.chuoi)
+    </div>
+    <div class="Clear"></div>
+</div>
+@if(Request.Browser.IsMobileDevice==false)
+{@Html.Raw(Model.CodeChat)}
+
+ @{Html.RenderAction("MenuMobine", "Footter");}
+ 
+<script>
+    try {
+        var Tat_quangcao = localStorage.getItem("Tat_quangcao");
+        if (Tat_quangcao != null) {
+            if ((new Date).getDate() == new Date(parseInt(localStorage.getItem("Tat_quangcao"))).getDate()) {
+                open_motog = false;
+            }
+        }
+    } catch (e) { console.log(e) }
+
+    function Tatquangcao(obj) {
+        $(obj).parent().remove();
+        try {
+
+            $('#Top_Banner').css({ 'height': '32px' });
+            $('#Content_Top_Banner').css({ 'position': 'relative', 'display': 'block' });
+            $('#adw').html();
+
+            localStorage.setItem("Tat_quangcao", (new Date).getTime())
+        } catch (e) { console.log(e); }
+    }
+</script>
+@if (Request.Browser.IsMobileDevice == false)
+{
+    if (Model.Social == true)
+    {
+        <div id="adw">
+            <div id="Banner_footer">
+                <div id="Content_Banner_Footer">
+                    <span onclick="Tatquangcao(this)">×</span>
+                    @Html.Raw(ViewBag.Chuoiimg)
+                </div>
+            </div>
+        </div>
+    }
+
+}
