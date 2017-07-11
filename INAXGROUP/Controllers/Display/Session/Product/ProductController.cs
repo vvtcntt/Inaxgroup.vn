@@ -28,13 +28,13 @@ namespace INAXGROUP.Controllers.Display.Session.Product
 
                 string Url = db.tblGroupProducts.First(p => p.id == idcates).Tag;
                 chuoi.Append("<div class=\"Tear_Sale\">");
-                if(listProduct[i].Access.Length>3)
-                {
-                         chuoi.Append("<div class=\"Tietkiemnuoc\">");
-                    	 chuoi.Append("<span class=\"tk1\">Mức xả</span>");
-                         chuoi.Append("<span class=\"tk2\">"+listProduct[i].Access+"</span>");
-                         chuoi.Append("</div>");
-                }
+                //if(listProduct[i].Access.Length>3)
+                //{
+                //         chuoi.Append("<div class=\"Tietkiemnuoc\">");
+                //    	 chuoi.Append("<span class=\"tk1\">Mức xả</span>");
+                //         chuoi.Append("<span class=\"tk2\">"+listProduct[i].Access+"</span>");
+                //         chuoi.Append("</div>");
+                //}
 
                 if(listProduct[i].New==true)
                 {
