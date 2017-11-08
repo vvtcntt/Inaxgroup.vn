@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>INAXGROUP</RootNamespace>
     <AssemblyName>INAXGROUP</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,16 +73,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -123,6 +122,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.0.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -179,6 +179,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Admin\Address\addressController.cs" />
     <Compile Include="Controllers\Admin\AdminController.cs" />
     <Compile Include="Controllers\Admin\Banks\BanksController.cs" />
     <Compile Include="Controllers\Admin\Config\ConfigController.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Controllers\Admin\Product\ProductSaleadController.cs" />
     <Compile Include="Controllers\Admin\Product\ProductSYNadController.cs" />
     <Compile Include="Controllers\Admin\Role\ModuleController.cs" />
+    <Compile Include="Controllers\Admin\support\supportController.cs" />
     <Compile Include="Controllers\Admin\Url\UrladController.cs" />
     <Compile Include="Controllers\Admin\User\UsersController.cs" />
     <Compile Include="Controllers\Admin\WebSites\WebController.cs" />
@@ -231,6 +233,7 @@
     <Compile Include="Models\INAXGROUPContext.cs" />
     <Compile Include="Models\Mapping\HistoryViewMap.cs" />
     <Compile Include="Models\Mapping\ProductConnectMap.cs" />
+    <Compile Include="Models\Mapping\tblAddressMap.cs" />
     <Compile Include="Models\Mapping\tblAgencyMap.cs" />
     <Compile Include="Models\Mapping\tblBankMap.cs" />
     <Compile Include="Models\Mapping\tblBaogiaMap.cs" />
@@ -287,6 +290,7 @@
     <Compile Include="Models\Mapping\tblWebMap.cs" />
     <Compile Include="Models\ProductConnect.cs" />
     <Compile Include="Models\StringClass.cs" />
+    <Compile Include="Models\tblAddress.cs" />
     <Compile Include="Models\tblAgency.cs" />
     <Compile Include="Models\tblBank.cs" />
     <Compile Include="Models\tblBaogia.cs" />
@@ -1394,6 +1398,7 @@
     <Content Include="Content\Display\iCon\GoogleAuthorShip.png" />
     <Content Include="Content\Display\iCon\Hethang.png" />
     <Content Include="Content\Display\iCon\home_w.png" />
+    <Content Include="Content\Display\iCon\hotline-icons.png" />
     <Content Include="Content\Display\iCon\ho_tro_vien.png" />
     <Content Include="Content\Display\iCon\huog-dan-su-dung.gif" />
     <Content Include="Content\Display\iCon\icon-calcua.png" />
@@ -1434,6 +1439,7 @@
     <Content Include="Content\Display\iCon\location.png" />
     <Content Include="Content\Display\iCon\Logoinax.png" />
     <Content Include="Content\Display\iCon\logo_american-stadard.png" />
+    <Content Include="Content\Display\iCon\logo_zalo.png" />
     <Content Include="Content\Display\iCon\mua-tron-bo.png" />
     <Content Include="Content\Display\iCon\muadongbo.png" />
     <Content Include="Content\Display\iCon\no_sale.png" />
@@ -1459,6 +1465,7 @@
     <Content Include="Content\Display\iCon\tietkiemnuoc1.png" />
     <Content Include="Content\Display\iCon\tietkiemnuoc2.png" />
     <Content Include="Content\Display\iCon\TOTOERRO.png" />
+    <Content Include="Content\Display\iCon\Viber_logo.png" />
     <Content Include="Content\Display\iCon\voi-rua-lavabo1.png" />
     <Content Include="Content\Display\Js\Adw.js" />
     <Content Include="Content\Display\Js\crawler.js" />
@@ -1750,6 +1757,14 @@
     <Content Include="Views\Shared\_LayoutDefault.cshtml" />
     <Content Include="Views\Mapsad\Edit.cshtml" />
     <Content Include="Views\Shared\_LayoutSale.cshtml" />
+    <Content Include="Views\address\Create.cshtml" />
+    <Content Include="Views\address\Edit.cshtml" />
+    <Content Include="Views\address\Index.cshtml" />
+    <Content Include="Views\address\ProductAddress.cshtml" />
+    <Content Include="Views\address\UpdateProductAddress.cshtml" />
+    <Content Include="Views\support\Create.cshtml" />
+    <Content Include="Views\support\Edit.cshtml" />
+    <Content Include="Views\support\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

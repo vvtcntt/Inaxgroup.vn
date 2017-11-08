@@ -483,7 +483,16 @@ namespace INAXGROUP.Controllers.Display.Session.Product
             }
             ViewBag.chuoitab = chuoitabs;
             }
-                return View(Product);
+            string address = Product.Address.ToString();
+            string resultAddress = "";
+            if (address != null && address != "")
+            {
+                int idaddress = int.Parse(address);
+                if (db.tblAddresses.FirstOrDefault(p => p.id == idaddress) != null)
+                    resultAddress = db.tblAddresses.FirstOrDefault(p => p.id == idaddress).Name;
+            }
+            ViewBag.address = resultAddress;
+            return View(Product);
         }
         public PartialViewResult PartialRightProductDetail(string idpd)
         {
@@ -501,12 +510,13 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                 chuoisupport.Append("<span class=\"htv2\">" + listSupport[i].Name + " :</span>");
                 chuoisupport.Append("</div>");
                 chuoisupport.Append("<div class=\"Right_Tear_Support\">");
-                chuoisupport.Append("<a href=\"ymsgr:sendim?" + listSupport[i].Yahoo + "\">");
-                chuoisupport.Append("<img src=\"http://opi.yahoo.com/online?u=" + listSupport[i].Yahoo + "&m=g&t=1\" alt=\"Yahoo\" class=\"imgYahoo\" />");
-                chuoisupport.Append(" </a>");
-                chuoisupport.Append("<a href=\"Skype:" + listSupport[i].Skyper + "?chat\">");
-                chuoisupport.Append("<img class=\"imgSkype\" src=\"/Content/Display/iCon/skype-icon.png\" title=\"Kangaroo\" alt=\"" + listSupport[i].Name + "\">");
-                chuoisupport.Append("</a>");
+                chuoisupport.Append("<div class=\"topTearSupport\">");
+                chuoisupport.Append("<a href=\"tel:" + listSupport[i].Mobile + "\" title=\"" + listSupport[i].Name + "\"><img src=\"/Content/Display/iCon/logo_zalo.png\" alt=\"" + listSupport[i].Name + "\" /></a>");
+                chuoisupport.Append("<a href=\"tel:" + listSupport[i].Mobile + "\" title=\"" + listSupport[i].Name + "\"><img src=\"/Content/Display/iCon/Viber_logo.png\" alt=\"" + listSupport[i].Name + "\" /></a>");
+                chuoisupport.Append("</div>");
+                chuoisupport.Append("<div class=\"bottomTearSupport\">");
+                chuoisupport.Append("<span>" + listSupport[i].Mobile + "</span>");
+                chuoisupport.Append("</div>");
                 chuoisupport.Append("</div>");
                 chuoisupport.Append("</div>");
             }

@@ -4,23 +4,16 @@
         <div id="img_Support"></div>
 
         <div id="Contact_Support">
-            @if (int.Parse(DateTime.Now.Hour.ToString()) > 0 && int.Parse(DateTime.Now.Hour.ToString()) < 7)
-            {
-                <span class="Hotline"><span></span> @Model.HotlineOUT</span>
 
-            }
-            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 7 && int.Parse(DateTime.Now.Hour.ToString()) < 19)
-            {
+
+            <div class="hotlineSwitchBoard" style="margin:10px ">
+                <span class="nameHotline">Tổng đài bán hàng</span>
+                <span class="hotlines">@Model.HotlineOUT</span>
+            </div>
+           
 
                 <span class="Hotline"><span></span> @Model.HotlineIN</span>
-            }
-
-
-            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 19 && int.Parse(DateTime.Now.Hour.ToString()) < 25)
-            {
-                <span class="Hotline"><span></span> @Model.HotlineOUT</span>
-
-            }
+          
             
             <span class="Mobile"><span></span> @Model.MobileIN</span>
             <span class="Email"><span></span> @Model.Email</span>

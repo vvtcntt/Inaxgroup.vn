@@ -50,27 +50,16 @@
         <span class="Name">Chỉ dẫn mua hàng</span>
         <div class="line_Bo"></div>
         <span class="Location"><span class="icon"></span> Showroom Inax : @Model.Address</span>
-        <span class="Hotline"><span class="icon"></span> Hotline : 
-            @if (int.Parse(DateTime.Now.Hour.ToString()) > 0 && int.Parse(DateTime.Now.Hour.ToString()) < 7)
-            {
-
-                <span>@Model.HotlineOUT</span>
-
-            }
-            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 7 && int.Parse(DateTime.Now.Hour.ToString()) < 19)
-            {
-
+        <span class="Hotline"><span class="icon"></span> Hotline :   
                 <span>@Model.HotlineIN</span>
-            }
-
-
-            else if (int.Parse(DateTime.Now.Hour.ToString()) >= 19 && int.Parse(DateTime.Now.Hour.ToString()) < 25)
-            {
-                <span>@Model.HotlineOUT</span>
-
-            }
-       
-        
+        </span>
+        <span class="Hotline">
+            <span class="icon"></span> Tổng đài bán hàng :
+            <span>@Model.HotlineOUT</span>
+        </span>
+        <span class="Hotline">
+            <span class="icon"></span> Tổng đài CSKH :
+            <span>@Model.MobileOUT</span>
         </span>
         <span class="Phone"><span class="icon"></span> Điện thoại bàn : <span>@Model.MobileIN</span></span>
         <span class="Email"><span class="icon"></span> Email : <span>@Model.Email</span></span>
@@ -130,7 +119,7 @@
         <a href="http://thayloilocnuoc.com" title="Thay lõi lọc nước Kangaroo tại nhà" style="font-size:2px; color:#fff; margin:0px; display:inline-block">Thay lõi lọc nước kangaroo tại nhà</a> hay mua <a href="http://binhnonglanh.top" title="Bình nóng lạnh giá rẻ nhất" style="font-size:2px; color:#fff; margin:0px; display:inline-block">Bình nóng lạnh giá rẻ</a>
     </div>
     <div class="boxlink">
-        <a href="http://viglacerahanoi.com" title="Thiết bị vệ sinh viglacera">thiết bị vệ sinh Viglacera</a> hay sản phẩm <a href="http://loiloc.com" title="Lõi lọc nước">Lõi lọc nước</a> hay <a href="http://viglacerahanoi.com/gach-op-lat-viglacera" title="Gạch ốp lát">Gạch ốp lát</a> cùng với 	<a href="http://viglacerahanoi.com" title="Bồn cầu viglacera">Bồn cầu Viglacera</a> hay 	<a href="http://viglacerahanoi.com/sen-voi-viglacera" title="Sen vòi Viglacera">Sen vòi Viglacera</a>
+        <a href="http://Viglaceravietnam.com" title="Thiết bị vệ sinh viglacera">thiết bị vệ sinh Viglacera</a> hay sản phẩm <a href="http://loiloc.com" title="Lõi lọc nước">Lõi lọc nước</a> hay <a href="http://Viglaceravietnam.com/gach-op-lat-viglacera" title="Gạch ốp lát">Gạch ốp lát</a> cùng với 	<a href="http://Viglaceravietnam.com" title="Bồn cầu viglacera">Bồn cầu Viglacera</a> hay 	<a href="http://Viglaceravietnam.com/sen-voi-viglacera" title="Sen vòi Viglacera">Sen vòi Viglacera</a>
     </div>
     <style>
         .boxlink {

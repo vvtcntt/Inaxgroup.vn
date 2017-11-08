@@ -1,11 +1,10 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Cấu hình website";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
- @model INAXGROUP.Models.tblConfig
- 
+@model INAXGROUP.Models.tblConfig
+
 <script type="text/javascript">
     var editor;
     function createEditor(languageCode, id) {
@@ -17,28 +16,26 @@
     $(function () {
         createEditor('vi', 'Content');
     });
-
 </script>
 
 <script type="text/javascript">
-     $(function () {
-         $("#SelectsLogo").click(function () {
-             var finder = new CKFinder();
-             finder.selectActionFunction = function (fileUrl) {
-                 $("#Logo").val(fileUrl);
-             };
-             finder.popup();
-         });
-         $("#SelectsFavicon").click(function () {
-             var finder = new CKFinder();
-             finder.selectActionFunction = function (fileUrl) {
-                 $("#Favicon").val(fileUrl);
-             };
-             finder.popup();
-         });
- 
-          
-     });
+    $(function () {
+        $("#SelectsLogo").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#Logo").val(fileUrl);
+            };
+            finder.popup();
+        });
+        $("#SelectsFavicon").click(function () {
+            var finder = new CKFinder();
+            finder.selectActionFunction = function (fileUrl) {
+                $("#Favicon").val(fileUrl);
+            };
+            finder.popup();
+        });
+
+    });
 </script>
 @Html.Raw(ViewBag.Role)
 @using (Html.BeginForm("Index", "Config", FormMethod.Post))
@@ -51,7 +48,6 @@
                     <ul>
                         <li><a href='/admin'><i class="icon-home" style="font-size:14px;"></i> Trang chủ</a></li>
                         <li class='SecondLast'><a href="/GroupProduct"> Cấu hình website</a></li>
-                      
                     </ul>
                 </div>
 
@@ -73,20 +69,16 @@
 
                                                 <td align="center">
                                                     <button type="submit" class="toolbar btn btn-info" name="btnSave" id="btnSave"><i class="icon-save"></i> &nbsp;Lưu lại</button>
-
                                                 </td>
 
-                                                 
-                                                 
                                                 <td align="center">
-                                                    <a onclick="" id="cph_Main_ctl00_toolbox_rptAction_lbtAction_0" title="Trợ giúp"  style="color:#FFF !important" class="toolbar btn btn-info" href="" )">
+                                                    <a onclick="" id="cph_Main_ctl00_toolbox_rptAction_lbtAction_0" title="Trợ giúp" style="color:#FFF !important" class="toolbar btn btn-info" href="" )">
                                                         <i class="icon-question-sign"></i>&nbsp;
                                                         Trợ giúp
                                                     </a>
                                                 </td>
                                             </tr>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
@@ -106,26 +98,21 @@
 
                                                         <td align="center">
                                                             <button type="submit" class="toolbar btn btn-info" name="btnSave" id="btnSave"><i class="icon-save"></i> &nbsp;Lưu lại</button>
-
                                                         </td>
 
-                                                         
-                                                         
                                                         <td align="center">
-                                                            <a onclick="" id="cph_Main_ctl00_toolbox_rptAction_lbtAction_0" title="Trợ giúp"  style="color:#FFF !important" class="toolbar btn btn-info" href="" )">
+                                                            <a onclick="" id="cph_Main_ctl00_toolbox_rptAction_lbtAction_0" title="Trợ giúp" style="color:#FFF !important" class="toolbar btn btn-info" href="" )">
                                                                 <i class="icon-question-sign"></i>&nbsp;
                                                                 Trợ giúp
                                                             </a>
                                                         </td>
                                                     </tr>
                                                 </table>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- widget-title -->
                         <!-- widget-body -->
@@ -134,7 +121,7 @@
                                 @Html.Raw(ViewBag.thongbao)
                             </div>
                             <table class="admintable" style="width: 100%;">
-                                 
+
                                 <tr>
                                     <td class="key">
                                         Title<span class="Required">*</span>
@@ -142,18 +129,16 @@
                                     <td>
                                         @Html.TextBoxFor(p => p.Title, new { @class = "Name_cp txtName", @autofocus = "autofocus" })
 
-
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
-                                                    Tiêu đề website 
+                                                    Tiêu đề website
                                                 </p>
                                                 <p class="tooltipmessage">
                                                     Tiêu đề website được hiển thị trên thanh Title trình duyệt
                                                 </p>
                                             </span>
                                         </span>
-                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -199,7 +184,6 @@
                                     <td>
                                         @Html.TextBoxFor(p => p.Name, new { @class = "Name_cp txtName", @autofocus = "autofocus" })
 
-
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
@@ -210,7 +194,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -219,7 +202,6 @@
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.Address, new { @class = "Name_cp txtName", @autofocus = "autofocus" })
-
 
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
@@ -231,7 +213,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -239,7 +220,7 @@
                                         Hotline <span class="Required">*</span>
                                     </td>
                                     <td>
-                                        @Html.TextBoxFor(p => p.HotlineIN, new { @class = "Name_ad Price_ad", @autofocus = "autofocus" }) 
+                                        @Html.TextBoxFor(p => p.HotlineIN, new { @class = "Name_ad Price_ad", @autofocus = "autofocus" })
 
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
@@ -251,12 +232,11 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Hotline ngoài giờ <span class="Required">*</span>
+                                        Tổng đài bán hàng <span class="Required">*</span>
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.HotlineOUT, new { @class = "Name_ad Price_ad", @autofocus = "autofocus" })
@@ -264,14 +244,13 @@
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
-                                                    Hotline ngoài giờ hành chính
+                                                    Tổng đài bán hàng
                                                 </p>
                                                 <p class="tooltipmessage">
-                                                    Hotline ngoài giờ hành chính vào buổi tối
+                                                    Tổng đài bán hàng
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -291,12 +270,11 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Điện thoại bàn ngoài giờ <span class="Required">*</span>
+                                        Tổng đài CHSK<span class="Required">*</span>
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.MobileOUT, new { @class = "Name_ad ", @autofocus = "autofocus" })
@@ -304,16 +282,17 @@
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
-                                                    Điện thoại bàn ngoài giờ hành chính
+                                                    Điện thoại Tổng đài CHSK
                                                 </p>
                                                 <p class="tooltipmessage">
-                                                    Đây là số điện thoại bàn hỗ trợ ngoài giờ hành chính
+                                                    Đây là số Tổng đài CHSK
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
+                                
+                                
                                 <tr>
                                     <td class="key">
                                         Email <span class="Required">*</span>
@@ -331,7 +310,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -351,7 +329,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -360,21 +337,19 @@
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.Logo, new { @class = "Name_ad" })&nbsp;<input id="SelectsLogo" type="button" value="Lựa chọn ảnh" class="Images_ad" />
-
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                         Favicon
+                                        Favicon
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.Favicon, new { @class = "Name_ad" })&nbsp;<input id="SelectsFavicon" type="button" value="Lựa chọn ảnh" class="Images_ad" />
-
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Nội dung tĩnh 
+                                        Nội dung tĩnh
                                     </td>
                                     <td>
                                         @Html.TextAreaFor(p => p.Content, new { @class = "Content_ad" })
@@ -397,7 +372,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -417,7 +391,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -433,11 +406,10 @@
                                                     Mã analytics
                                                 </p>
                                                 <p class="tooltipmessage">
-                                                   Mã analytics cho website
+                                                    Mã analytics cho website
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -457,7 +429,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -477,7 +448,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <
@@ -498,7 +468,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -600,10 +569,10 @@
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
-                                                   Thẻ Geo Meta
+                                                    Thẻ Geo Meta
                                                 </p>
                                                 <p class="tooltipmessage">
-                                                   Bạn vào website http://www.geo-tag.de/generator/en.html để lấy thẻ này !
+                                                    Bạn vào website http://www.geo-tag.de/generator/en.html để lấy thẻ này !
                                                 </p>
                                             </span>
                                         </span>
@@ -727,7 +696,7 @@
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
-                                                    Timeout 
+                                                    Timeout
                                                 </p>
                                                 <p class="tooltipmessage">
                                                     Timeout gửi mail, thông thường là 2000
@@ -742,8 +711,8 @@
                                         Coppy
                                     </td>
                                     <td>
-                                      @{ bool Coppy = ((Model.Coppy == null) || (Model.Coppy == false)) ? false : true; }
-                                    @Html.CheckBoxFor(model => Coppy)
+                                        @{ bool Coppy = ((Model.Coppy == null) || (Model.Coppy == false)) ? false : true; }
+                                        @Html.CheckBoxFor(model => Coppy)
 
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
@@ -759,7 +728,7 @@
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Mạng xã hội 
+                                        Mạng xã hội
                                     </td>
                                     <td>
                                         @{ bool Social = ((Model.Social == null) || (Model.Social == false)) ? false : true; }
@@ -779,7 +748,7 @@
                                 </tr>
                                 <tr>
                                     <td class="key">
-                                        Popup 
+                                        Popup
                                     </td>
                                     <td>
                                         @{ bool Popup = ((Model.Popup == null) || (Model.Popup == false)) ? false : true; }
@@ -821,10 +790,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-}
- 
-
+                                            }

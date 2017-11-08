@@ -20,7 +20,7 @@ namespace INAXGROUP.Models
         public Nullable<double> PriceSaleActive { get; set; }
         public Nullable<bool> Vat { get; set; }
         public string Warranty { get; set; }
-        public string Address { get; set; }
+        public Nullable<int> Address { get; set; }
         public Nullable<bool> Transport { get; set; }
         public string Access { get; set; }
         public string Sale { get; set; }
