@@ -153,7 +153,7 @@ namespace INAXGROUP.Controllers.Admin.Product
                 }
                 if (text != null && text != "")
                 {
-                    listProduct = db.tblProducts.Where(p => p.Name.ToUpper().Contains(text.ToUpper()) && p.Active == true).OrderByDescending(p => p.DateCreate).ToList();
+                    listProduct = db.tblProducts.Where(p => p.Name.ToUpper().Contains(text.ToUpper()) ).OrderByDescending(p => p.DateCreate).ToList();
                     ViewBag.chuoicout = "<span style='color: #A52A2A;'>" + listProduct.Count + "</span> ";
 
                     return PartialView("PartialProductData", listProduct.ToPagedList(pageNumber, pageSize));
@@ -197,7 +197,7 @@ namespace INAXGROUP.Controllers.Admin.Product
             }
             if (text != null && text != "")
             {
-                listProduct = db.tblProducts.Where(p => p.Name.ToUpper().Contains(text.ToUpper()) && p.Active == true).OrderByDescending(p => p.DateCreate).ToList();
+                listProduct = db.tblProducts.Where(p => p.Name.ToUpper().Contains(text.ToUpper())).OrderByDescending(p => p.DateCreate).ToList();
                 ViewBag.chuoicout = "<span style='color: #A52A2A;'>" + listProduct.Count + "</span> ";
                 ViewBag.Text = text;
                 return PartialView("PartialProductData", listProduct.ToPagedList(pageNumber, pageSize));
@@ -206,7 +206,7 @@ namespace INAXGROUP.Controllers.Admin.Product
             {
 
                 int idcates = int.Parse(idCate);
-                listProduct = db.tblProducts.Where(p => p.idCate == idcates && p.Active == true).OrderByDescending(p => p.DateCreate).ToList();
+                listProduct = db.tblProducts.Where(p => p.idCate == idcates ).OrderByDescending(p => p.DateCreate).ToList();
                 ViewBag.idMenu = idCate;
                 ViewBag.idcate = idCate;
                 ViewBag.ddlMenu = carlist;
