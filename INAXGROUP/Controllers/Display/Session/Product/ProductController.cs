@@ -42,7 +42,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                 chuoi.Append("<div class=\"Box_Tietkiem\">");
                 chuoi.Append("<span class=\"kt0\">Bạn hãy</span>");
                 chuoi.Append("<span class=\"kt1\">Gọi điện</span>");
-                chuoi.Append("<span class=\"kt3\">nhận giá rẻ nhất</span>");
+                chuoi.Append("<span class=\"kt3\">Nhận KM tốt nhất</span>");
                 float nPrice = float.Parse(listProduct[i].Price.ToString());
                 float nPriceSale = float.Parse(listProduct[i].PriceSale.ToString());
                 float nSum = 100-((nPriceSale * 100) / nPrice);
@@ -100,7 +100,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                 chuoi.Append("</div>");
                 chuoi.Append("<div class=\"Clear\"></div>");
                 chuoi.Append("<div class=\"Qua\">");
-                chuoi.Append("<span class=\"ng ng_" + i + "\">Hãy gọi điện hoặc đến trực tiếp để nhận giá khuyến mại. Chúng tôi cam kết giá rẻ nhất Việt Nam</span>");
+                chuoi.Append("<span class=\"ng ng_" + i + "\">Hãy gọi điện hoặc đến trực tiếp để nhận giá khuyến mại. Chúng tôi cam kết KM tốt nhất Việt Nam</span>");
                 chuoi.Append("<div class=\"Laygiakm\"><span class=\"laygia lg" + listProduct[i].id + "\" onClick=\"javascript:return Laygia('lg" + listProduct[i].id + "','" + listProduct[i].Name + "','" + String.Format("{0:#,#}", listProduct[i].PriceSale) + "','" + note + "');\" title=\"Để lấy giá hỗ trợ tốt nhất Hà Nội\">Lấy giá tốt nhất</span></div>");
 
                 //chuoi.Append(" <div class=\"Content_Qua\">");
@@ -243,7 +243,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                         chuoi.Append("<div class=\"Box_Tietkiem\">");
                         chuoi.Append("<span class=\"kt0\">Bạn hãy</span>");
                         chuoi.Append("<span class=\"kt1\">gọi điện</span>");
-                         chuoi.Append("<span class=\"kt3\">giá rẻ nhất</span>");
+                         chuoi.Append("<span class=\"kt3\">KM tốt nhất</span>");
                         float nPrice = float.Parse(listProduct[y].Price.ToString());
                         float nPriceSale = float.Parse(listProduct[y].PriceSale.ToString());
                         float nSum = 100 - ((nPriceSale * 100) / nPrice);
@@ -301,7 +301,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                         chuoi.Append("</div>");
                         chuoi.Append("<div class=\"Qua\">");
  
-                        chuoi.Append("<span class=\"ng ng1_" + id + "\">Đang khuyến mại giá rẻ nhất Hà Nội,để biết giá hãy :</span>");
+                        chuoi.Append("<span class=\"ng ng1_" + id + "\">Đang khuyến mại lớn nhất Hà Nội,để biết giá hãy :</span>");
                         //chuoi.Append(" <div class=\"Content_Qua\">");
                         //chuoi.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + id + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + id + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + id + ")\">Chát</span>");
                         //chuoi.Append(" </div>");
@@ -525,7 +525,12 @@ namespace INAXGROUP.Controllers.Display.Session.Product
             //lIST Menu
             int idCate = int.Parse(Product.idCate.ToString());
             tblGroupProduct grouproduct = db.tblGroupProducts.Find(idCate);
-            int parent = int.Parse(grouproduct.ParentID.ToString());
+            int parent = 0;
+            if (grouproduct.ParentID.ToString()!=null && grouproduct.ParentID.ToString() != "")
+            {
+                parent = int.Parse(grouproduct.ParentID.ToString());
+            }
+     
          
             string chuoimenu = "";
             var listGroupProduct = db.tblGroupProducts.Where(p => p.ParentID == parent && p.Active == true ).OrderBy(p => p.Ord).ToList();
@@ -548,7 +553,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                chuoiproduct.Append("<div class=\"Box_Tietkiem\">");
                chuoiproduct.Append("<span class=\"kt0\">Bạn hãy</span>");
                chuoiproduct.Append("<span class=\"kt1\">gọi điện</span>");
-               chuoiproduct.Append("<span class=\"kt3\">giá rẻ nhất</span>");
+               chuoiproduct.Append("<span class=\"kt3\">KM tốt nhất</span>");
                 float nPrice = float.Parse(listProduct[i].Price.ToString());
                 float nPriceSale = float.Parse(listProduct[i].PriceSale.ToString());
                 float nSum = 100 - ((nPriceSale * 100) / nPrice);
@@ -604,7 +609,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                chuoiproduct.Append("</div>");
                chuoiproduct.Append("</div>");
                chuoiproduct.Append("<div class=\"Qua\">");
-               chuoiproduct.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại giá rẻ nhất Hà Nội,để biết giá hãy :</span>");
+               chuoiproduct.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại lớn nhất Hà Nội,để biết giá hãy :</span>");
                //chuoiproduct.Append(" <div class=\"Content_Qua\">");
                //chuoiproduct.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + ids + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + ids + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + ids + ")\">Chát</span>");
                //chuoiproduct.Append(" </div>");
@@ -689,7 +694,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                         chuoi.Append("<div class=\"Box_Tietkiem\">");
                         chuoi.Append("<span class=\"kt0\">Bạn hãy</span>");
                         chuoi.Append("<span class=\"kt1\">gọi điện</span>");
-                        chuoi.Append("<span class=\"kt3\">giá rẻ nhất</span>");
+                        chuoi.Append("<span class=\"kt3\">KM tốt nhất</span>");
                         float nPrice = float.Parse(listProduct[j].Price.ToString());
                         float nPriceSale = float.Parse(listProduct[j].PriceSale.ToString());
                         float nSum = 100 - ((nPriceSale * 100) / nPrice);
@@ -744,7 +749,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                         chuoi.Append("</div>");
                         chuoi.Append("</div>");
                         chuoi.Append("<div class=\"Qua\">");
-                        chuoi.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại giá rẻ nhất Hà Nội,để biết giá hãy :</span>");
+                        chuoi.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại lớn nhất Hà Nội,để biết giá hãy :</span>");
                         //chuoi.Append(" <div class=\"Content_Qua\">");
                         //chuoi.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + ids + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + ids + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + ids + ")\">Chát</span>");
                         //chuoi.Append(" </div>");
@@ -798,7 +803,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                     chuoi.Append("<div class=\"Box_Tietkiem\">");
                     chuoi.Append("<span class=\"kt0\">Bạn hãy</span>");
                     chuoi.Append("<span class=\"kt1\">gọi điện</span>");
-                    chuoi.Append("<span class=\"kt3\">giá rẻ nhất</span>");
+                    chuoi.Append("<span class=\"kt3\">KM tốt nhất</span>");
                     float nPrice = float.Parse(listProduct[j].Price.ToString());
                     float nPriceSale = float.Parse(listProduct[j].PriceSale.ToString());
                     float nSum = 100 - ((nPriceSale * 100) / nPrice);
@@ -854,7 +859,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                     chuoi.Append("</div>");
                     chuoi.Append("</div>");
                     chuoi.Append("<div class=\"Qua\">");
-                    chuoi.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại giá rẻ nhất Hà Nội,để biết giá hãy :</span>");
+                    chuoi.Append("<span class=\"ng ng1_" + ids + "\">Đang khuyến mại lớn nhất Hà Nội,để biết giá hãy :</span>");
                     //chuoi.Append(" <div class=\"Content_Qua\">");
                     //chuoi.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + ids + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + ids + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + ids + ")\">Chát</span>");
                     //chuoi.Append(" </div>");
@@ -1014,7 +1019,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                chuoiproduct.Append("</div>");
                chuoiproduct.Append("</div>");
                 chuoi.Append("<div class=\"Qua\">");
-                chuoi.Append("<span class=\"ng ng1_" + ids + "\">Giá khuyến mại ? Chúng tôi cam kết giá giá rẻ nhất Việt Nam khi khách hàng :</span>");
+                chuoi.Append("<span class=\"ng ng1_" + ids + "\">Giá khuyến mại ? Chúng tôi cam kết khuyến mại lớn nhất Việt Nam khi khách hàng :</span>");
                 //chuoi.Append(" <div class=\"Content_Qua\">");
                 //chuoi.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + ids + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + ids + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + ids + ")\">Chát</span>");
                 //chuoi.Append("</div>");
@@ -1096,7 +1101,7 @@ namespace INAXGROUP.Controllers.Display.Session.Product
                chuoiproduct.Append("</div>");
                chuoiproduct.Append("</div>");
                 chuoi.Append("<div class=\"Qua\">");
-                chuoi.Append("<span class=\"ng ng1_" + ids + "\">Giá khuyến mại ? Chúng tôi cam kết giá giá rẻ nhất Việt Nam khi khách hàng :</span>");
+                chuoi.Append("<span class=\"ng ng1_" + ids + "\">Giá khuyến mại ? Chúng tôi cam kết khuyến mại tốt nhất Việt Nam khi khách hàng :</span>");
                 //chuoi.Append(" <div class=\"Content_Qua\">");
                 //chuoi.Append("<span class=\"dt\" onclick=\"javascript:return Goidien(" + ids + ")\">Gọi điện</span><span class=\"gd\"  onclick=\"javascript:return Dentructiep(" + ids + ")\">Đến trực tiếp</span><span class=\"ch\"  onclick=\"javascript:return Chat(" + ids + ")\">Chát</span>");
                 //chuoi.Append(" </div>");
